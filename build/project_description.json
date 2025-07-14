@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "fmon2",
-    "project_version":    "1",
+    "project_version":    "fd99b97-dirty",
     "project_path":       "/home/rodrigo/ic_fmon/fmon2",
     "idf_path":           "/home/rodrigo/esp/esp-idf",
     "build_dir":          "/home/rodrigo/ic_fmon/fmon2/build",

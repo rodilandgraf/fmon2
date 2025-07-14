@@ -1,0 +1,83 @@
+[0;33m--- esp-idf-monitor 1.6.2 on /dev/ttyUSB0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008194e: panic_abort at /home/rodrigo/esp/esp-idf/components/esp_system/panic.c:463
+--- 0x40086801: esp_system_abort at /home/rodrigo/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+--- 0x4008ca51: __assert_func at /home/rodrigo/esp/esp-idf/components/newlib/assert.c:80
+--- 0x4008b38a: tlsf_free at /home/rodrigo/esp/esp-idf/components/heap/tlsf/tlsf.c:1201
+--- 0x4008b210: multi_heap_free_impl at /home/rodrigo/esp/esp-idf/components/heap/multi_heap.c:235
+--- 0x4008213e: heap_caps_free at /home/rodrigo/esp/esp-idf/components/heap/heap_caps_base.c:70
+--- 0x4008ca6d: free at /home/rodrigo/esp/esp-idf/components/newlib/heap.c:39
+--- 0x400d62c4: app_main at /home/rodrigo/ic_fmon/fmon2/main/fmon2.c:38
+--- 0x400e84d8: main_task at /home/rodrigo/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x400872a9: vPortTaskWrapper at /home/rodrigo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008194e: panic_abort at /home/rodrigo/esp/esp-idf/components/esp_system/panic.c:463
+--- 0x40086801: esp_system_abort at /home/rodrigo/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+--- 0x4008ca51: __assert_func at /home/rodrigo/esp/esp-idf/components/newlib/assert.c:80
+--- 0x4008b38a: tlsf_free at /home/rodrigo/esp/esp-idf/components/heap/tlsf/tlsf.c:1201
+--- 0x4008b210: multi_heap_free_impl at /home/rodrigo/esp/esp-idf/components/heap/multi_heap.c:235
+--- 0x4008213e: heap_caps_free at /home/rodrigo/esp/esp-idf/components/heap/heap_caps_base.c:70
+--- 0x4008ca6d: free at /home/rodrigo/esp/esp-idf/components/newlib/heap.c:39
+--- 0x400d62c4: app_main at /home/rodrigo/ic_fmon/fmon2/main/fmon2.c:38
+--- 0x400e84d8: main_task at /home/rodrigo/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x400872a9: vPortTaskWrapper at /home/rodrigo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008194e: panic_abort at /home/rodrigo/esp/esp-idf/components/esp_system/panic.c:463
+--- 0x40086801: esp_system_abort at /home/rodrigo/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+--- 0x4008ca51: __assert_func at /home/rodrigo/esp/esp-idf/components/newlib/assert.c:80
+--- 0x4008b38a: tlsf_free at /home/rodrigo/esp/esp-idf/components/heap/tlsf/tlsf.c:1201
+--- 0x4008b210: multi_heap_free_impl at /home/rodrigo/esp/esp-idf/components/heap/multi_heap.c:235
+--- 0x4008213e: heap_caps_free at /home/rodrigo/esp/esp-idf/components/heap/heap_caps_base.c:70
+--- 0x4008ca6d: free at /home/rodrigo/esp/esp-idf/components/newlib/heap.c:39
+--- 0x400d62c4: app_main at /home/rodrigo/ic_fmon/fmon2/main/fmon2.c:38
+--- 0x400e84d8: main_task at /home/rodrigo/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x400872a9: vPortTaskWrapper at /home/rodrigo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008194e: panic_abort at /home/rodrigo/esp/esp-idf/components/esp_system/panic.c:463
+--- 0x40086801: esp_system_abort at /home/rodrigo/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+--- 0x4008ca51: __assert_func at /home/rodrigo/esp/esp-idf/components/newlib/assert.c:80
+--- 0x4008b38a: tlsf_free at /home/rodrigo/esp/esp-idf/components/heap/tlsf/tlsf.c:1201
+--- 0x4008b210: multi_heap_free_impl at /home/rodrigo/esp/esp-idf/components/heap/multi_heap.c:235
+--- 0x4008213e: heap_caps_free at /home/rodrigo/esp/esp-idf/components/heap/heap_caps_base.c:70
+--- 0x4008ca6d: free at /home/rodrigo/esp/esp-idf/components/newlib/heap.c:39
+--- 0x400d62c4: app_main at /home/rodrigo/ic_fmon/fmon2/main/fmon2.c:38
+--- 0x400e84d8: main_task at /home/rodrigo/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x400872a9: vPortTaskWrapper at /home/rodrigo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008194e: panic_abort at /home/rodrigo/esp/esp-idf/components/esp_system/panic.c:463
+--- 0x40086801: esp_system_abort at /home/rodrigo/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+--- 0x4008ca51: __assert_func at /home/rodrigo/esp/esp-idf/components/newlib/assert.c:80
+--- 0x4008b38a: tlsf_free at /home/rodrigo/esp/esp-idf/components/heap/tlsf/tlsf.c:1201
+--- 0x4008b210: multi_heap_free_impl at /home/rodrigo/esp/esp-idf/components/heap/multi_heap.c:235
+--- 0x4008213e: heap_caps_free at /home/rodrigo/esp/esp-idf/components/heap/heap_caps_base.c:70
+--- 0x4008ca6d: free at /home/rodrigo/esp/esp-idf/components/newlib/heap.c:39
+--- 0x400d62c4: app_main at /home/rodrigo/ic_fmon/fmon2/main/fmon2.c:38
+--- 0x400e84d8: main_task at /home/rodrigo/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x400872a9: vPortTaskWrapper at /home/rodrigo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x4008194e: panic_abort at /home/rodrigo/esp/esp-idf/components/esp_system/panic.c:463
+--- 0x40086801: esp_system_abort at /home/rodrigo/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
+--- 0x4008ca51: __assert_func at /home/rodrigo/esp/esp-idf/components/newlib/assert.c:80
+--- 0x4008b38a: tlsf_free at /home/rodrigo/esp/esp-idf/components/heap/tlsf/tlsf.c:1201
+--- 0x4008b210: multi_heap_free_impl at /home/rodrigo/esp/esp-idf/components/heap/multi_heap.c:235
+--- 0x4008213e: heap_caps_free at /home/rodrigo/esp/esp-idf/components/heap/heap_caps_base.c:70
+--- 0x4008ca6d: free at /home/rodrigo/esp/esp-idf/components/newlib/heap.c:39
+--- 0x400d62c4: app_main at /home/rodrigo/ic_fmon/fmon2/main/fmon2.c:38
+--- 0x400e84d8: main_task at /home/rodrigo/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x400872a9: vPortTaskWrapper at /home/rodrigo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0m

@@ -1,3 +1,5 @@
+#include <string.h>
+#include <stdlib.h>
 #include "capture_image.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -5,6 +7,8 @@
 #include "MLX90640_API.h"
 
 #define TA_SHIFT 8
+#define IMAGE_WIDTH 32
+#define IMAGE_HEIGHT 24
 
 static const char *TAG = "CAPTURE_IMAGE";
 static paramsMLX90640 mlx90640;
@@ -42,7 +46,7 @@ void init_thermal_camera(void)
 
 void capture_thermal_data(float *result)
 {
-    float emissivity = 0.5;
+    float emissivity = 0.3;
     float tr;
 
     uint16_t *mlx90640Frame = (uint16_t *)malloc(834 * sizeof(uint16_t));
@@ -62,21 +66,87 @@ void capture_thermal_data(float *result)
     free(mlx90640Frame);
 }
 
+void convert_to_grayscale(float *temperatureData, uint8_t *grayImageInt, int16_t minTemp, int16_t maxTemp)
+{
+    int i;
+    for (i = 0; i < 768; i++)
+    {
+        int16_t temp = temperatureData[i];
+
+        int norm = (temp - minTemp) * 255 / (maxTemp - minTemp);
+        if (norm < 0)
+            norm = 0;
+        if (norm > 255)
+            norm = 255;
+
+        grayImageInt[i] = norm;
+    }
+}
+
+uint8_t *create_bmp_from_grayscale(const uint8_t *grayData, int *out_size)
+{
+    int row_padded = (IMAGE_WIDTH + 3) & (~3);
+    int pixel_array_size = row_padded * IMAGE_HEIGHT;
+
+    int file_size = 14 + 40 + (256 * 4) + pixel_array_size;
+
+    *out_size = file_size;
+    uint8_t *bmp = (uint8_t *)malloc(file_size);
+    if (!bmp)
+    {
+        return NULL;
+    }
+    memset(bmp, 0, file_size);
+
+    bmp[0] = 'B';
+    bmp[1] = 'M';
+    *(uint32_t *)(bmp + 2) = file_size;
+    *(uint32_t *)(bmp + 10) = 14 + 40 + (256 * 4);
+    *(uint32_t *)(bmp + 14) = 40;
+    *(int32_t *)(bmp + 18) = IMAGE_WIDTH;
+    *(int32_t *)(bmp + 22) = IMAGE_HEIGHT;
+    *(uint16_t *)(bmp + 26) = 1;
+    *(uint16_t *)(bmp + 28) = 8;
+    *(uint32_t *)(bmp + 34) = pixel_array_size;
+
+    for (int i = 0; i < 256; i++)
+    {
+        int offset = 14 + 40 + i * 4;
+        bmp[offset + 0] = i;
+        bmp[offset + 1] = i;
+        bmp[offset + 2] = i;
+        bmp[offset + 3] = 0;
+    }
+
+    uint8_t *p = bmp + 14 + 40 + (256 * 4);
+
+    for (int y = IMAGE_HEIGHT - 1; y >= 0; y--)
+    {
+
+        for (int x = 0; x < IMAGE_WIDTH; x++)
+        {
+            *p++ = grayData[y * IMAGE_WIDTH + x];
+        }
+
+        for (int i = 0; i < (row_padded - IMAGE_WIDTH); i++)
+        {
+            *p++ = 0;
+        }
+    }
+
+    return bmp;
+}
+
 void set_camera_refresh_rate(uint8_t rate)
 {
-    if (rate > 7)
-    {
-        ESP_LOGW(TAG, "Valor de frequência inválido: %d. Use um valor entre 0 e 7.", rate);
-        return;
-    }
     int status = MLX90640_SetRefreshRate(slaveAddress, rate);
     if (status == 0)
     {
-        ESP_LOGI(TAG, "Frequência da câmera configurada para o valor: %d", rate);
+        ESP_LOGI(TAG, "Camera frequency set to: %d", rate);
     }
     else
     {
-        ESP_LOGE(TAG, "Falha ao configurar a frequência da câmera (erro %d)", status);
+        ESP_LOGE(TAG, "Frequency configuration failed (error %d)", status);
     }
 }
 
@@ -86,11 +156,11 @@ void set_camera_chess_mode(void)
     int status = MLX90640_SetChessMode(slaveAddress);
     if (status == 0)
     {
-        ESP_LOGI(TAG, "Modo da câmera configurado para: Chess");
+        ESP_LOGI(TAG, "Camera mode set to: Chess");
     }
     else
     {
-        ESP_LOGE(TAG, "Falha ao configurar o modo Chess (erro %d)", status);
+        ESP_LOGE(TAG, "Mode configuration failed (error %d)", status);
     }
 }
 
@@ -99,10 +169,10 @@ void set_camera_interleaved_mode(void)
     int status = MLX90640_SetInterleavedMode(slaveAddress); //
     if (status == 0)
     {
-        ESP_LOGI(TAG, "Modo da câmera configurado para: Interleaved");
+        ESP_LOGI(TAG, "Camera mode set to: Interleaved");
     }
     else
     {
-        ESP_LOGE(TAG, "Falha ao configurar o modo Interleaved (erro %d)", status);
+        ESP_LOGE(TAG, "Mode configuration failed (error %d)", status);
     }
 }

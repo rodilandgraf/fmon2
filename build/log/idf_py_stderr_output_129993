@@ -1,0 +1,28 @@
+[0;33m--- esp-idf-monitor 1.6.2 on /dev/ttyUSB0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d99cb: task_wdt_timeout_handling at /home/rodrigo/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x400d9d90: task_wdt_isr at /home/rodrigo/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x40082ea9: _xt_lowint1 at /home/rodrigo/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x400d4581: uart_tx_char at /home/rodrigo/esp/esp-idf/components/esp_driver_uart/src/uart_vfs.c:168
+--- 0x400d4d4b: uart_write at /home/rodrigo/esp/esp-idf/components/esp_driver_uart/src/uart_vfs.c:223
+--- 0x400d5ad1: esp_vfs_write at /home/rodrigo/esp/esp-idf/components/vfs/vfs.c:502
+--- 0x4000bd83: _write_r in ROM
+--- 0x4000182a: write in ROM
+--- 0x400d563d: console_write at /home/rodrigo/esp/esp-idf/components/esp_vfs_console/vfs_console.c:67
+--- 0x400d5ad1: esp_vfs_write at /home/rodrigo/esp/esp-idf/components/vfs/vfs.c:502
+--- 0x4000bd83: _write_r in ROM
+--- 0x4000117d: __swrite in ROM
+--- 0x400592fe: __sflush_r in ROM
+--- 0x4005937a: _fflush_r in ROM
+--- 0x40058c77: __swbuf_r in ROM
+--- 0x400dd4e6: __sputc_r at /builds/idf/crosstool-NG/.build/src/newlib-git-7cdcb0b0/newlib/libc/include/stdio.h:699
+---  (inlined by) _putc_r at /builds/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/putc.c:88
+--- 0x400dd53d: putchar at /builds/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/putchar.c:85
+--- 0x400d62b1: mlx90640_picture at /home/rodrigo/ic_fmon/fmon2/main/fmon2.c:71
+--- 0x400d62ff: app_main at /home/rodrigo/ic_fmon/fmon2/main/fmon2.c:23
+--- 0x400e8528: main_task at /home/rodrigo/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x400872a9: vPortTaskWrapper at /home/rodrigo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0m
