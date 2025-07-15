@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "fmon2",
-    "project_version":    "91f9f6f-dirty",
+    "project_version":    "6b0c693-dirty",
     "project_path":       "/home/rodrigo/ic_fmon/fmon2",
     "idf_path":           "/home/rodrigo/esp/esp-idf",
     "build_dir":          "/home/rodrigo/ic_fmon/fmon2/build",
@@ -1211,7 +1211,7 @@
             "managed_priv_reqs": [ "espressif__esp-tflite-micro" ],
             "file": "/home/rodrigo/ic_fmon/fmon2/build/esp-idf/main/libmain.a",
             "sources": [ "/home/rodrigo/ic_fmon/fmon2/main/fmon2.c", "/home/rodrigo/ic_fmon/fmon2/main/capture_image.c", "/home/rodrigo/ic_fmon/fmon2/main/cnn_classifier.cpp", "/home/rodrigo/ic_fmon/fmon2/main/wifi_manager.c", "/home/rodrigo/ic_fmon/fmon2/main/https_client.cpp", "/home/rodrigo/ic_fmon/fmon2/build/lse.pem.S" ],
-            "include_dirs": []
+            "include_dirs": [ ".", "headers", "model" ]
         },
         "mbedtls": {
             "alias": "idf::mbedtls",
@@ -2836,7 +2836,7 @@
             "priv_reqs": [ "espressif__esp-tflite-micro" ],
             "managed_reqs": [],
             "managed_priv_reqs": [ "espressif__esp-tflite-micro" ],
-            "include_dirs": []
+            "include_dirs": [ ".", "headers", "model" ]
         },
         "mlx90640_redar": {
             "alias": "idf::mlx90640_redar",

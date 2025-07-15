@@ -1,4 +1,4 @@
-/* * Data converted from /home/rodrigo/ic_fmon/fmon2/main/lse.pem
+/* * Data converted from /home/rodrigo/ic_fmon/fmon2/main/cert/lse.pem
  * (null byte appended)
  */
 .data

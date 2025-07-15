@@ -1,5 +1,6 @@
 idf_component_register(SRCS "fmon2.c" "capture_image.c" "cnn_classifier.cpp" "wifi_manager.c" "https_client.cpp"
-                     EMBED_TXTFILES "lse.pem"
+INCLUDE_DIRS "." "headers" "model"
+                     EMBED_TXTFILES "cert/lse.pem"
                       REQUIRES mlx90640_redar
                               nvs_flash
                                esp_netif

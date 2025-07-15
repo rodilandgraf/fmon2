@@ -40,6 +40,6 @@ void app_main(void)
         send_bmp_https_post(bmp_image, image_size(), cnn_result);
 
         free(bmp_image);
-        vTaskDelay(pdMS_TO_TICKS(2000));
+        vTaskDelay(pdMS_TO_TICKS(5000));
     }
 }
