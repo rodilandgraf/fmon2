@@ -1,0 +1,86 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15564
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.3.2 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Jul 14 2025 17:42:31[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (35) boot: chip revision: v3.1[0m
+[0;32mI (39) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0ec3ch ( 60476) map[0m
+[0;32mI (125) esp_image: segment 1: paddr=0001ec64 vaddr=3ffb0000 size=013b4h (  5044) load[0m
+[0;32mI (127) esp_image: segment 2: paddr=00020020 vaddr=400d0020 size=29e34h (171572) map[0m
+[0;32mI (190) esp_image: segment 3: paddr=00049e5c vaddr=3ffb13b4 size=03c50h ( 15440) load[0m
+[0;32mI (196) esp_image: segment 4: paddr=0004dab4 vaddr=40080000 size=0e0d4h ( 57556) load[0m
+[0;32mI (226) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (226) boot: Disabling RNG early entropy source...[0m
+[0;32mI (239) cpu_start: Multicore app[0m
+[0;32mI (247) cpu_start: Pro cpu start user code[0m
+[0;32mI (247) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (247) app_init: Application information:[0m
+[0;32mI (250) app_init: Project name:     fmon2[0m
+[0;32mI (255) app_init: App version:      91f9f6f-dirty[0m
+[0;32mI (260) app_init: Compile time:     Jul 14 2025 17:42:24[0m
+[0;32mI (266) app_init: ELF file SHA256:  7a2242879...[0m
+[0;32mI (271) app_init: ESP-IDF:          v5.3.2[0m
+[0;32mI (276) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (281) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (286) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (291) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (298) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (304) heap_init: At 3FFC1D40 len 0001E2C0 (120 KiB): DRAM[0m
+[0;32mI (310) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (317) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (323) heap_init: At 4008E0D4 len 00011F2C (71 KiB): IRAM[0m
+[0;32mI (331) spi_flash: detected chip: generic[0m
+[0;32mI (334) spi_flash: flash io: dio[0m
+[0;33mW (338) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (351) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (362) main_task: Started on CPU0[0m
+[0;32mI (372) main_task: Calling app_main()[0m
+[0;32mI (372) CAPTURE_IMAGE: Initializing thermal camera...[0m
+[0;32mI (552) CAPTURE_IMAGE: Thermal camera initialized successfully.[0m
+[0;32mI (552) CAPTURE_IMAGE: Camera frequency set to: 1[0m
+[0;32mI (552) CAPTURE_IMAGE: Camera mode set to: Interleaved[0m
+[0;32mI (1052) CNN_CLASSIFIER: TFLite model initialized successfully.[0m
+[0;32mI (1632) CAPTURE_IMAGE: BMP image successfully created (1846 bytes).[0m
+[0;32mI (1672) TFLite: Saída bruta int8 → sem fogo: 62, fogo: -128[0m
+[0;32mI (1672) TFLite: Resultado: SEM FOGO
+[0m
+[0;32mI (4692) CAPTURE_IMAGE: BMP image successfully created (1846 bytes).[0m
+[0;32mI (4722) TFLite: Saída bruta int8 → sem fogo: 62, fogo: -128[0m
+[0;32mI (4722) TFLite: Resultado: SEM FOGO
+[0m
+[0;32mI (7752) CAPTURE_IMAGE: BMP image successfully created (1846 bytes).[0m
+[0;32mI (7782) TFLite: Saída bruta int8 → sem fogo: 62, fogo: -128[0m
+[0;32mI (7782) TFLite: Resultado: SEM FOGO
+[0m
+[0;32mI (10812) CAPTURE_IMAGE: BMP image successfully created (1846 bytes).[0m
+[0;32mI (10842) TFLite: Saída bruta int8 → sem fogo: 62, fogo: -128[0m
+[0;32mI (10842) TFLite: Resultado: SEM FOGO
+[0m
+[0;32mI (13872) CAPTURE_IMAGE: BMP image successfully created (1846 bytes).[0m
+[0;32mI (13902) TFLite: Saída bruta int8 → sem fogo: 62, fogo: -128[0m
+[0;32mI (13902) TFLite: Resultado: SEM FOGO
+[0m
+[0;32mI (16932) CAPTURE_IMAGE: BMP image successfully created (1846 bytes).[0m
+[0;32mI (16962) TFLite: Saída bruta int8 → sem fogo: 62, fogo: -128[0m
+[0;32mI (16962) TFLite: Resultado: SEM FOGO
+[0m

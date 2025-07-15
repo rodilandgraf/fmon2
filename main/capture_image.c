@@ -11,6 +11,7 @@
 #define IMAGE_HEIGHT 24
 
 static const char *TAG = "CAPTURE_IMAGE";
+static int final_size = 0;
 static paramsMLX90640 mlx90640;
 static uint8_t slaveAddress = 0x33;
 
@@ -52,7 +53,7 @@ void capture_thermal_data(float *result)
     uint16_t *mlx90640Frame = (uint16_t *)malloc(834 * sizeof(uint16_t));
     if (mlx90640Frame == NULL)
     {
-        ESP_LOGE(TAG, "Failed to allocate memory for frame data");
+        ESP_LOGE(TAG, "Failed to allocate memory for frame data.");
         return;
     }
 
@@ -91,6 +92,8 @@ uint8_t *create_bmp_from_grayscale(const uint8_t *grayData, int *out_size)
     int file_size = 14 + 40 + (256 * 4) + pixel_array_size;
 
     *out_size = file_size;
+    final_size = file_size;
+
     uint8_t *bmp = (uint8_t *)malloc(file_size);
     if (!bmp)
     {
@@ -133,8 +136,31 @@ uint8_t *create_bmp_from_grayscale(const uint8_t *grayData, int *out_size)
             *p++ = 0;
         }
     }
-
     return bmp;
+}
+
+uint8_t *mlx90640_picture(float *thermal_buffer, uint8_t *grayscale_buffer)
+{
+    capture_thermal_data(thermal_buffer);
+
+    convert_to_grayscale(thermal_buffer, grayscale_buffer, 20, 300);
+
+    int bmp_size = 0;
+    uint8_t *bmp_data = create_bmp_from_grayscale(grayscale_buffer, &bmp_size);
+
+    if (bmp_data)
+    {
+        ESP_LOGI(TAG, "BMP image successfully created (%d bytes).", bmp_size);
+    }
+    else
+    {
+        ESP_LOGE(TAG, "BMP image creation failed.");
+    }
+    return bmp_data;
+}
+
+int image_size(){
+    return final_size;
 }
 
 void set_camera_refresh_rate(uint8_t rate)

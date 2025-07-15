@@ -4,11 +4,15 @@
 
 void init_thermal_camera(void);
 
-void capture_thermal_data(float* result);
+void capture_thermal_data(float *result);
 
 void convert_to_grayscale(float *temperatureData, uint8_t *grayImageInt, int16_t minTemp, int16_t maxTemp);
 
-uint8_t* create_bmp_from_grayscale(const uint8_t* grayData, int* out_size);
+int image_size();
+
+uint8_t *create_bmp_from_grayscale(const uint8_t *grayData, int *out_size);
+
+uint8_t *mlx90640_picture(float *thermal_buffer, uint8_t *grayscale_buffer);
 
 void set_camera_refresh_rate(uint8_t rate);
 

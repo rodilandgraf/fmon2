@@ -18,6 +18,7 @@ if("${CONFIG}" STREQUAL "" OR "${CONFIG}" STREQUAL "")
   "fmon2.map"
   "ldgen_libraries"
   "ldgen_libraries.in"
+  "lse.pem.S"
   "project_elf_src_esp32.c"
   "x509_crt_bundle.S"
   )
