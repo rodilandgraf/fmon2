@@ -1,0 +1,7 @@
+# Ignorar arquivos de build
+/build/
+
+# Ignorar arquivos de configuração local
+sdkconfig
+sdkconfig.old
+
